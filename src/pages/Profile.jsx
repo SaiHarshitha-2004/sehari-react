@@ -1,7 +1,37 @@
-import React from "react";
+import React , {useState} from "react";
 import { CiSearch } from "react-icons/ci";
 import login from "../images/login.jpg";
 const Profile = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = async () => {
+    try {
+      
+      const response = await fetch("http://localhost:8000/database/login" , {
+        method : "POST",
+        credentials : "include",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          email : email, 
+          password : password 
+        }),
+       })
+       if(response.ok){
+        console.log("success");
+      }
+      else{
+        console.log("response is ",response)
+        console.error("Error in login ");
+      }
+      
+
+    } catch (error) {
+      console.log("error in server side")
+    }
+
+  }
   return (
     <div className="flex justify-center items-center px-16 py-20 bg-white max-md:px-5">
       <div className="mt-96 w-full max-w-[1196px] max-md:mt-10 max-md:max-w-full">
@@ -31,9 +61,10 @@ const Profile = () => {
                       </span>
                     </div>
                     <input
-                      type="text"
+                      type="email" value={email} required
+                      onChange={(e) => setEmail(e.target.value)}
                       className="block w-full rounded-md border-0 py-1.5 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      placeholder="enter username"
+                      placeholder="enter email"
                     />
                   </div>
                 </div>
@@ -45,17 +76,19 @@ const Profile = () => {
                       </span>
                     </div>
                     <input
-                      type="text"
+                      type="password" value={password} required
+                      onChange={(e) => setPassword(e.target.value)}
                       className="block w-full rounded-md border-0 py-1.5 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       placeholder="enter password"
                     />
                   </div>
                 </div>
                 <div className="flex flex-col items-center justify-center mt-3 max-w-full text-xl font-medium text-black bg-indigo-300 w-[296px]">
-                  <div className="justify-center text-center items-start py-6 pr-16 pl-2.5 bg-indigo-300 max-md:pr-5">
-                    {" "}
-                    Continue
-                  </div>
+                  <button type="submit" onClick={handleLogin} className="justify-center text-center items-start py-6 pr-16 pl-2.5 bg-indigo-300 max-md:pr-5">
+                    {" "} Continue
+                  </button>
+                  {error && <p className="error">{error}</p>}
+
                 </div>
                 <div className="flex gap-5 justify-between items-center mt-11 text-xl text-black whitespace-nowrap max-md:mt-10">
                   <div className="shrink-0 self-stretch my-auto h-px bg-black border border-black border-solid w-[87px]" />

@@ -13,16 +13,16 @@ const SignUp = () => {
     try {
 
       // Make a POST request to your server endpoint for signup
-      const response = await fetch("http://localhost:8000/api/sehariDatabase/users", {
-       method : "POST",
-       credentials : "include",
-       headers: { 'Content-Type': 'application/json' },
-       body: JSON.stringify({ 
-        email : email, 
-        password : password 
-      }),     
+      const response = await fetch("http://localhost:8000/database/signup", {
+        method : "POST",
+        credentials : "include",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          email : email, 
+          password : password 
+        }),     
       });
-      // Handle success response
+      
       if(response.ok){
         console.log("success");
       }
@@ -34,7 +34,6 @@ const SignUp = () => {
       const data = await response.json();
 
     } catch (error) {
-      // Handle error response
       console.error("Error occurred during signup:", error);
     }
   }

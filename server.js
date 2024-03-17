@@ -1,9 +1,15 @@
 import express from 'express';
 import { mongoose } from 'mongoose';
 import cors from "cors";
+import {USERNAME , PASSWORD} from "../sehari-react/config.js";
+import bcrypt from "bcrypt";
 
 const app = express();
 app.use(express.json( { extended : false }));
+
+const dbName = "sehariDatabase";
+const collectionName = "users";
+
 
 const corsOptions = {
   origin : 'http://localhost:5173',
@@ -14,10 +20,8 @@ app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 8000;
 
-const uri = "mongodb+srv://saiharshithamandapalli:Harshitha@cluster0.wevnywk.mongodb.net/";
+const uri = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.wevnywk.mongodb.net/`;
 
-const dbName = "sehariDatabase";
-const collectionName = "users";
 
 mongoose.connect( `${uri}${dbName}` )
 .then(() => {
@@ -39,19 +43,28 @@ const userSchema = new mongoose.Schema({
 const User = new mongoose.model(collectionName , userSchema);
 
 // Signup route
-app.post('/api/sehariDatabase/users', async (req, res) => {
+app.post('/database/signup', async (req, res) => {
+
   try {
     const {email , password} = req.body ;
-    
+
     if (!email || !password) {
       return res.status(400).json({ message: 'Email and password are required' });
     }
 
+    const exitingUser = await User.findOne({email});
+    if(exitingUser){
+      return res.status(409).json({message : "email already exits"});
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const newUser = await User.create({
-      email , password 
+      email : email , 
+      password : hashedPassword 
     })
 
-    console.log("USER DATA " , newUser);
+    console.log("USER DATA ", newUser);
 
     res.status(200).json({ message: 'User created successfully' });
   } 
@@ -61,17 +74,31 @@ app.post('/api/sehariDatabase/users', async (req, res) => {
   }
 });
 
-app.get("/api/sehariDatabase/users" , async (req , res ) => {
-  try{
-     const usersData = await User.find();
-     res.status(200).json(usersData);
+//login route 
+app.post("/database/login" , async (req , res) => {
+  try {
+    const {email , password} = req.body ; 
+
+    if(!email || !password) {
+      return res.status(409).json({message : "Email and password is required"})
+    }
+
+    const exitingUser = await User.findOne( { email} );
+
+    if(!exitingUser || !(await bcrypt.compare(password, exitingUser.password)) ){
+      return res.status(401).json({ message: 'Invalid email or password' });
+
+    }
+
+    res.json({message : "Login successful"}) ; 
+
+  } catch (err) {
+    console.error('Error during login:', err);
+    res.status(500).json({ message: 'Internal server error' });
   }
-  catch (error) {
-    console.error("Error fetching data", error);
-    res.status(500).json({ message: "Error fetching data", error });
-}
 })
-// Start the server
+
+
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+  console.log(`Server listening on port ${PORT} `);
 }); 
