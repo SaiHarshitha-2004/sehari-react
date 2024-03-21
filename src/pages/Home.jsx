@@ -94,22 +94,8 @@ const Home = () => {
         </div>
       </div>
 
-      {/* sehari slider component */}
-      <div
-        className={`self-start mt-40 ml-16 tracking-wider leading-[50px] text-black text-opacity-70 max-md:mt-10 max-md:max-w-full title ${titleSize}`}
-      >
-        Captivating Venues Await <br />
-      </div>
-      <div
-        className={`self-center mt-16  tracking-wide text-center text-black leading-[50px] w-[980px] max-md:mt-10 max-md:max-w-full subtitle ${subtitleSize}`}
-      >
-        Explore Our Stunning Event Halls! Immerse yourself in a visual feast
-        with our curated selection of venue snapshots.
-      </div>
-      <img className="mt-14 w-full  aspect-[7.69] max-md:mt-10 max-md:max-w-full" />
-
-      {/* how EHARI WORKS  */}
-      <div className="flex flex-col pt-10 pr-5 pb-20 pl-5 max-w-full">
+{/* how EHARI WORKS  */}
+<div className="flex flex-col pt-10 pr-5 pb-20 pl-5 max-w-full">
         <div
           className={`self-center title ${titleSize} font-light whitespace-nowrap`}
         >
@@ -160,6 +146,22 @@ const Home = () => {
           </VerticalTimeline>
         </div>
       </div>
+      
+      {/* sehari slider component */}
+      <div
+        className={`self-start mt-40 ml-16 tracking-wider leading-[50px] text-black text-opacity-70 max-md:mt-10 max-md:max-w-full title ${titleSize}`}
+      >
+        Captivating Venues Await <br />
+      </div>
+      <div
+        className={`self-center mt-16  tracking-wide text-center text-black leading-[50px] w-[980px] max-md:mt-10 max-md:max-w-full subtitle ${subtitleSize}`}
+      >
+        Explore Our Stunning Event Halls! Immerse yourself in a visual feast
+        with our curated selection of venue snapshots.
+      </div>
+      <img className="mt-14 w-full  aspect-[7.69] max-md:mt-10 max-md:max-w-full" />
+
+      
       <Footer />
     </>
   );

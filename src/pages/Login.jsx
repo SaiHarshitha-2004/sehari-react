@@ -1,55 +1,54 @@
-import React , { useState } from "react";
+import React , {useState} from "react";
 import login from "../images/login.jpg";
+import { IoLockClosedOutline } from "react-icons/io5";
+import { TfiUser } from "react-icons/tfi";
 import { CiFacebook } from "react-icons/ci";
 import { CiInstagram } from "react-icons/ci";
 import { CiTwitter } from "react-icons/ci";
-import { TfiUser } from "react-icons/tfi";
-import { IoLockClosedOutline } from "react-icons/io5";
 import NavBar from "./NavBar";
 import { useNavigate } from "react-router-dom";
 
-
-const SignUp = () => {
-
+const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSignUp = async () => {
+  const handleLogin = async () => {
+    if(!email || !password){
+      setError( "Email or password is required")
+    }
+    else{
     try {
-
-      // Make a POST request to your server endpoint for signup
-      const response = await fetch("http://localhost:8000/database/signup", {
+      
+      const response = await fetch("http://localhost:8000/database/login" , {
         method : "POST",
         credentials : "include",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           email : email, 
           password : password 
-        }),     
-      });
-      
-      if(response.ok){
-        navigate("/login");
+        }),
+       })
+       if(response.ok){
+        navigate("/")
       }
       else{
-        console.log("response is ",response)
-        console.error("Error creating post");
+        setError("Email or password is incorrect")
       }
       
-      const data = await response.json();
 
     } catch (error) {
-      console.error("Error occurred during signup:", error);
+      console.log("error in server side")
     }
+  }
   }
   return (
     <>
-    <div className=" bg-red-50">
+    <div className="bg-red-50">
       <NavBar />
     </div>
-    <div className="z-2 flex justify-center items-center px-16 py-20 max-md:px-5">
+    <div className="z-1 flex justify-center items-center px-16 py-20 max-md:px-5">
       <div className="mt-10 w-full max-md:mt-10 ">
         <div className="flex gap-0 max-md:flex-col max-md:gap-0">
           <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
@@ -66,18 +65,18 @@ const SignUp = () => {
                   <div>back!</div>
                 </div>
                 <div className="mt-14 text-4xl font-semibold text-black max-md:mt-10">
-                  Sign Up
+                  Login
                   <br />
                 </div>
 
                 {/* username */}
-                <div className="flex flex-col justify-center  mt-5 mb-5 max-w-full w-[330px]">
+                <div className="flex z-1 flex-col justify-center  mt-5 mb-5 max-w-full w-[330px]">
                   <div className="relative w-full top-2 flex items-center rounded-md shadow-sm">
                       <TfiUser size="25" color="black" className="absolute pl-3 pointer-events-none"/> 
                       <input
                         type="email" value={email} required
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full rounded-md border-0 py-2 pl-8 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className=" w-full rounded-md border-0 py-2 pl-8 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         placeholder="Enter email"
                         />                    
                     </div>
@@ -85,7 +84,7 @@ const SignUp = () => {
                 </div>
 
                 {/* password */}
-                <div className="flex z-2 flex-col justify-center mt-5 mb-5 max-w-full w-[330px]">
+                <div className="flex z-1 flex-col justify-center mt-5 mb-5 max-w-full w-[330px]">
                   <div className="relative w-full top-2 flex items-center rounded-md shadow-sm">
                       <IoLockClosedOutline size="25" color="black" className="absolute pl-3 pointer-events-none"/> 
                       <input
@@ -99,8 +98,8 @@ const SignUp = () => {
                 </div>
                 
                 <div className="flex flex-col items-center justify-center mt-3 max-w-full border cursor-pointer hover:rounded-3xl text-xl font-medium text-black bg-indigo-300 w-[296px]">
-                  <button type="submit" onClick={handleSignUp} className="text-center  items-start py-6  bg-indigo-300">
-                    {" "} sign up
+                  <button type="submit" onClick={handleLogin} className="text-center  items-start py-6  bg-indigo-300">
+                    {" "} Continue
                   </button>
                 </div>
                 <div className="flex gap-5 justify-between items-center mt-11 text-xl text-black whitespace-nowrap max-md:mt-10">
@@ -116,10 +115,10 @@ const SignUp = () => {
                   <CiFacebook  className="lg:w-1/4 md:w-full md:h-full  lg:h-full w-1/5 hover:rounded-md hover:border hover:border-black h-1/2"/>
                   <CiTwitter className="lg:w-1/4 md:w-full md:h-full  lg:h-full w-1/5 hover:rounded-md hover:border hover:border-black h-1/2" />
                 </div>
-                <div className="flex gap-5 mt-10 text-xl font-semibold whitespace-nowrap max-md:mt-10">
-                  <div className="grow text-black">Already have an account?</div>
-                  <a href="/profile" className="text-teal-500 pb-2 full-width-underline">
-                     login
+                <div className="flex flex-wrap gap-5 mt-10 text-xl justify-center font-semibold whitespace-nowrap max-md:mt-10">
+                  <div className="grow text-black">don’t have an account?</div>
+                  <a href="/signup" className="text-teal-500 pb-2 full-width-underline">
+                    Sign Up
                   </a>
                 </div>
               </div>
@@ -132,4 +131,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;

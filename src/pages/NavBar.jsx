@@ -46,24 +46,24 @@ const NavBar = () => {
   return (
     <>
       <div className="z-20">
-        <div className={`w-full flex justify-between px-10 py-5 text-4xl whitespace-nowrap max-md:flex-wrap ${isVerticalScrolled ? 'bg-red-50 fixed top-0  text-black ' : 'text-white'}`}>
+        <div className={`z-10 w-full flex justify-between px-10 py-5 text-semibold text-4xl whitespace-nowrap max-md:flex-wrap ${isVerticalScrolled ? 'bg-red-50 fixed top-0  text-black ' : 'text-black'}`}>
           <div className="flex-auto my-auto">SEHARI</div>
 
           {/* desktop navbar */}
           <div className="hidden lg:flex px-10 flex-col">
             <div className="flex flex-col justify-center items-end px-5 py-7 w-full text-3xl font-lightwhitespace-nowrap  max-md:px-5 max-md:max-w-full">
               <div className="flex gap-5 justify-between">
-                <a href="/" className={`grow cursor-pointer full-width-underline  subtitle ${subtitleSize}`} aria-current="page">Home</a>
+                <a href="/" className={`grow cursor-pointer full-width-underline  subtitle ${subtitleSize}`}>Home</a>
                 <a href="/services" className={`flex-auto cursor-pointer full-width-underline subtitle ${subtitleSize}`}>Services</a>
                 <a href="#"  className={`grow cursor-pointer full-width-underline subtitle ${subtitleSize}`}>Contact us</a>
-                <a href="/profile" className={`flex-auto cursor-pointer full-width-underline subtitle ${subtitleSize}`}>Login</a>
+                <a href="/login" className={`flex-auto cursor-pointer full-width-underline subtitle ${subtitleSize}`}>Login</a>
 
               </div>
             </div>
           </div>
 
           {/* Mobile view  */}
-          <div className="lg:hidden">
+          <div className="lg:hidden z-20">
             <div>
               <CiMenuBurger
                 onClick={openMenuButton}
@@ -74,7 +74,7 @@ const NavBar = () => {
         </div>
       </div>
       {menu && (
-        <div className="lg:hidden md:hidden fixed z-20 top-0 right-0 max-w-fit-content" onClick={openMenuButton}>
+        <div className="lg:hidden fixed top-0 right-0 max-w-fit-content" onClick={openMenuButton}>
           <div className="bg-black bg-opacity-25 w-screen h-screen backdrop-blur-sm p-10">
             <div className="absolute max-w-fit-content top-0 right-0 flex flex-col w-1/2 h-screen px-5 py-5 bg-red-50">
               <IoCloseOutline
@@ -83,10 +83,10 @@ const NavBar = () => {
               />
               <div className="flex h-1/2">
                 <div className="flex flex-col  items-center justify-between h-full flex-grow">
-                  <a href="/" className={`px-4 py-2 full-width-underline pb-2 substitle ${subtitleSize}`} aria-current="page">Home</a>
+                  <a href="/" className={`px-4 py-2 full-width-underline pb-2 substitle ${subtitleSize}`}>Home</a>
                   <a href="/services" className={`px-4 py-2 full-width-underline pb-2 substitle ${subtitleSize}`}>Services</a>
                   <a href="#" className={`px-4 py-2 full-width-underline pb-2 substitle ${subtitleSize}`}>Contact us</a>
-                  <a href="/profile" className={`px-4 py-2 full-width-underline pb-2 substitle ${subtitleSize}`}>Login</a>
+                  <a href="/login" className={`px-4 py-2 full-width-underline pb-2 substitle ${subtitleSize}`}>Login</a>
                 </div>
               </div>
             </div>
