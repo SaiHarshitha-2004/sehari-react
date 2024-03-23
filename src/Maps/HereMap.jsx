@@ -19,7 +19,7 @@ export default function HashMap() {
   const [mapController, setMapController] = useState();
 
   useEffect(() => {
-    if (map.current) return; // stops map from intializing more than once
+    if (map.current) return; 
 
     map.current = new maplibregl.Map({
       container: mapContainer.current,

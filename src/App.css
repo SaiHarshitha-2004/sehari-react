@@ -33,12 +33,11 @@
   background: rgb(243, 186, 194) !important;
 }
 .title{
-  font-family: "PlayFair Display" , serif;
-  font-style:"italic";
+  font-family: "Playfair Display", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+    font-style:"italic";
 }
 .subtitle{
-  font-family: "PlayFair Display" , serif;
-}
+  font-family: "Playfair Display", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;}
 .map-wrap {
   position: relative;
   width: 100%;

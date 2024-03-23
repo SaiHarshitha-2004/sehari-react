@@ -3,17 +3,18 @@ import services from "../images/services.jpg";
 import gallery from "../images/gallery.jpg";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import sehariWorks from "../images/sehariWorks.jpg";
-import bookEvent from "../images/bookEvent.png";
-import connect from "../images/connect.png";
-import location from "../images/location.png";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
+
+import { Swiper  , SwiperSlide } from "swiper/react"
+import "swiper/css"
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
 import servicesTitle from "../images/servicesTitle.jpg";
 import { titleSize, subtitleSize } from "./Styles";
+import BestVenues from "../HomeComponents/BestVenues";
+import SehariWorks from "../HomeComponents/SehariWorks";
 
 const Home = () => {
   return (
@@ -94,59 +95,13 @@ const Home = () => {
         </div>
       </div>
 
-{/* how EHARI WORKS  */}
-<div className="flex flex-col pt-10 pr-5 pb-20 pl-5 max-w-full">
-        <div
-          className={`self-center title ${titleSize} font-light whitespace-nowrap`}
-        >
-          How <span className="text-blue-400">SEHARI</span> works
-        </div>
-        <div
-          className={`self-center mt-9 subtitle ${subtitleSize} text-center text-black`}
-        >
-          <span className="text-blue-600">SEHARI</span> helps you find your
-          perfect venue by searching for what matters most to you.
-        </div>
+       {/* how EHARI WORKS  */}
+       <SehariWorks />
 
-        <div className="-z-10 title sm:text-2xl md:text-3xl lg:text-lg">
-          <VerticalTimeline>
-            <VerticalTimelineElement
-              date="step 01" dateClassName={``}
-              icon={<img src={location} alt="Location" />}
-            >
-              <h3 className="vertical-timeline-element-title">
-                search you event location
-              </h3>
-              <h4 className="vertical-timeline-element-subtitle">
-                all over the world
-              </h4>
-            </VerticalTimelineElement>
-            <VerticalTimelineElement
-              date="step 02"
-              icon={<img src={connect} alt="connect" />}
-            >
-              <h3 className="vertical-timeline-element-title">
-                connect through our agency
-              </h3>
-              <h4 className="vertical-timeline-element-subtitle">
-                from social media
-              </h4>
-            </VerticalTimelineElement>
-            <VerticalTimelineElement
-              date="step 03"
-              icon={<img src={bookEvent} alt="bookEvent" />}
-            >
-              <h3 className="vertical-timeline-element-title">
-                book your event
-              </h3>
-              <h4 className="vertical-timeline-element-subtitle">
-                through online
-              </h4>
-            </VerticalTimelineElement>
-          </VerticalTimeline>
-        </div>
-      </div>
-      
+      {/* bestVenues compnent */}
+      <BestVenues />
+
+
       {/* sehari slider component */}
       <div
         className={`self-start mt-40 ml-16 tracking-wider leading-[50px] text-black text-opacity-70 max-md:mt-10 max-md:max-w-full title ${titleSize}`}
@@ -154,14 +109,37 @@ const Home = () => {
         Captivating Venues Await <br />
       </div>
       <div
-        className={`self-center mt-16  tracking-wide text-center text-black leading-[50px] w-[980px] max-md:mt-10 max-md:max-w-full subtitle ${subtitleSize}`}
+        className={`self-center mt-16 mb-16  tracking-wide text-center text-black leading-[50px] w-[980px] max-md:mt-10 max-md:max-w-full subtitle ${subtitleSize}`}
       >
         Explore Our Stunning Event Halls! Immerse yourself in a visual feast
         with our curated selection of venue snapshots.
       </div>
-      <img className="mt-14 w-full  aspect-[7.69] max-md:mt-10 max-md:max-w-full" />
-
+      <Swiper
+      // install Swiper modules
+      className="border border-black "
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      // spaceBetween={50}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+      scrollbar={{ draggable: true }}
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+    >
+      <SwiperSlide className="">
+        <img src={services} alt="" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img src={services} alt="" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img src={services} alt="" />
+      </SwiperSlide>    
+      <SwiperSlide>
+        <img src={services} alt="" />
+      </SwiperSlide>  
       
+    </Swiper>
       <Footer />
     </>
   );
