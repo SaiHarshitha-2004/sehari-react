@@ -7,10 +7,10 @@ import { titleSize, subtitleSize } from "./Styles";
 import theme from "../images/theme.jpg";
 import meeting from "../images/meeting.jpg";
 import wedding from "../images/wedding.jpg";
-import { FaMapMarkerAlt } from "react-icons/fa";
 import SearchVenue from "../images/SearchVenue.jpg";
+import DisplayVenuesIcons from "../ServiceComponents/DisplayVenuesIcons";
 
-const Card = ( {title , content , img }) => {
+const Card = ( {title , img }) => {
   return (
 
     <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
@@ -53,7 +53,7 @@ const Services = () => {
             <img src={SearchVenue} alt="venu" />
           </div>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-10">
           <div className="relative top-5 border border-black w-1/2 flex items-center mt-2 rounded-md shadow-sm">
             <div className="pointer-events-none absolute inset-y-0 flex items-center pl-3">
               <span className="text-gray-500 sm:text-sm">
@@ -71,16 +71,24 @@ const Services = () => {
 
         <div class="flex w-full mt-10 items-center justify-center">
           <div class=" grid grid-cols-1 gap-5 md:grid-cols-1 lg:grid-cols-3">
-             <Card title="Wedding Events" content="Explore" img={wedding} />
-             <Card title="Meeting Events" content="Explore" img={meeting} />
-             <Card title="themed Events" content="Explore" img={theme} />
+             <Card title="Wedding Events" img={wedding} />
+             <Card title="Meeting Events" img={meeting} />
+             <Card title="themed Events" img={theme} />
           </div>
         </div>
 
       </div>
 
+      <div>
+        <DisplayVenuesIcons />
+      </div>
+
       {/* // sample costs */}
       <div className="flex flex-col items-center pb-5 bg-white">
+
+        <div>
+          <p className={`${titleSize} mt-20`}>Sample Bookings</p>
+        </div>
         <div className="shrink-0 mt-5 max-w-full h-px w-[1278px] max-md:mt-10" />
         <div className="flex gap-5 justify-between items-start py-20 pr-9 pl-20 mt-14 max-w-full text-4xl text-black bg-red-50 w-[1208px] max-md:flex-wrap max-md:px-5 max-md:mt-10">
           <div className="flex flex-col self-start">

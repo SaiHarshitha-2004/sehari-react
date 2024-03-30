@@ -6,6 +6,8 @@ import Login from './pages/Login';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignUp from './pages/SignUp'; 
 import HereMap from './Maps/HereMap';
+import DisplayVenues from "./HomeComponents/DisplayVenues";
+import Animations from './Data/Animations';
 
 
 const App = () => {
@@ -19,6 +21,8 @@ const App = () => {
         <Route path="/signup" element={ <SignUp /> } />
 
         <Route path="/maps" element={ <HereMap /> } />
+        <Route path="/displayallvenues" element={ <DisplayVenues /> } />
+        <Route path="/loader" element={ <Animations /> } />
 
       </Routes>
     </BrowserRouter>

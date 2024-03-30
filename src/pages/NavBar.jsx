@@ -63,7 +63,7 @@ const NavBar = () => {
           </div>
 
           {/* Mobile view  */}
-          <div className="lg:hidden z-20">
+          <div className="lg:hidden z-10">
             <div>
               <CiMenuBurger
                 onClick={openMenuButton}
@@ -74,7 +74,7 @@ const NavBar = () => {
         </div>
       </div>
       {menu && (
-        <div className="lg:hidden fixed top-0 right-0 max-w-fit-content" onClick={openMenuButton}>
+        <div className="z-10 lg:hidden fixed top-0 right-0 max-w-fit-content" onClick={openMenuButton}>
           <div className="bg-black bg-opacity-25 w-screen h-screen backdrop-blur-sm p-10">
             <div className="absolute max-w-fit-content top-0 right-0 flex flex-col w-1/2 h-screen px-5 py-5 bg-red-50">
               <IoCloseOutline
