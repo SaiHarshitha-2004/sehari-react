@@ -1,9 +1,9 @@
 import React  from "react";
-import { titleSize, subtitleSize , minititleSize} from "../pages/Styles";
 import VenuesData from "../Data/VenuesData";
 
 const BestVenues = () => {
   const [venues] = VenuesData()
+
   const displayVenues = venues.slice(0 , 3 ) ;
 
   return (

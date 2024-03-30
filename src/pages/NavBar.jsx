@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
 import "../App.css"
-import { titleSize, subtitleSize } from "./Styles"
-import { CgProfile } from "react-icons/cg";
+import { subtitleSize } from "./Styles"
 
 
 

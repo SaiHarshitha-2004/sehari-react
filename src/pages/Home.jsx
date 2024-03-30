@@ -12,7 +12,6 @@ import 'swiper/css/scrollbar';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 import servicesTitle from "../images/servicesTitle.jpg";
-import { titleSize, subtitleSize, minititleSize } from "./Styles";
 import BestVenues from "../HomeComponents/BestVenues";
 import SehariWorks from "../HomeComponents/SehariWorks";
 
