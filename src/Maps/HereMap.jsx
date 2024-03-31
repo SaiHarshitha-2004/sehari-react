@@ -9,7 +9,7 @@ import '../App.css';
 
 const apiKey = "gOLtVSqQbN00o8HwJkTm";
 
-export default function HashMap() {
+const HashMap = () => {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng] = useState(139.753);
@@ -42,3 +42,5 @@ export default function HashMap() {
     </div>
   );
 }
+
+export default HashMap;

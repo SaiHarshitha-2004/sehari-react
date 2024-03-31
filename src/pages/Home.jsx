@@ -3,14 +3,12 @@ import services from "../images/services.jpg";
 import gallery from "../images/gallery.jpg";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-
 import { Swiper  , SwiperSlide } from "swiper/react"
 import "swiper/css"
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
 import servicesTitle from "../images/servicesTitle.jpg";
 import BestVenues from "../HomeComponents/BestVenues";
 import SehariWorks from "../HomeComponents/SehariWorks";
@@ -114,10 +112,8 @@ const Home = () => {
         with our curated selection of venue snapshots.
       </div>
       <Swiper
-      // install Swiper modules
       className="border border-black "
       modules={[Navigation, Pagination, Scrollbar, A11y]}
-      // spaceBetween={50}
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
