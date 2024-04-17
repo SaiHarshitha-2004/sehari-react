@@ -1,22 +1,18 @@
 import React from "react";
-import services from "../images/services.jpg";
 import gallery from "../images/gallery.jpg";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import { Swiper  , SwiperSlide } from "swiper/react"
-import "swiper/css"
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import Carousel from "../HomeComponents/Carousel";
 import servicesTitle from "../images/servicesTitle.jpg";
 import BestVenues from "../HomeComponents/BestVenues";
 import SehariWorks from "../HomeComponents/SehariWorks";
+import services from "../images/services.jpg";
+
 
 const Home = () => {
   return (
     <>
-      <div>
+      <div className="overflow-hidden">
         <div>
           <div className="z-10 fixed w-full max-h-fit top-0 bottom-0">
             <NavBar />
@@ -100,41 +96,9 @@ const Home = () => {
 
 
       {/* sehari slider component */}
-      <div
-        className={`tracking-wider leading-[50px] text-black flex justify-center items-center max-md:max-w-full title text-3xl text-center`}
-      >
-        Captivating Venues Await <br />
-      </div>
-      <div
-        className={`mt-16 mb-16  tracking-wide text-center text-black leading-[50px]  max-md:mt-10 max-md:max-w-full subtitle text-xl`}
-      >
-        Explore Our Stunning Event Halls! Immerse yourself in a visual feast
-        with our curated selection of venue snapshots.
-      </div>
-      <Swiper
-      className="border border-black "
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      slidesPerView={1}
-      navigation
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
-    >
-      <SwiperSlide className="">
-        <img src={services} alt="" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={services} alt="" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={services} alt="" />
-      </SwiperSlide>    
-      <SwiperSlide>
-        <img src={services} alt="" />
-      </SwiperSlide>  
+      <Carousel />
+
       
-    </Swiper>
       <Footer />
     </>
   );

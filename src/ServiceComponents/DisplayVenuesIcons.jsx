@@ -1,10 +1,10 @@
 import React from 'react';
-import  VenuesData from "../Data/VenuesData";
+import VenuesData from "../Data/VenuesData"
 import { titleSize , subtitleSize , minititleSize } from '../pages/Styles';
 import Animations from '../Data/Animations';
 
 const DisplayVenuesIcons = () => {
-  const [venues , venuesIconData , isLoading] = VenuesData()
+  const [ venues, venuesIconData, isLoading ] = VenuesData() 
 
   const encodedSvgs = venuesIconData.map(venue =>  ( {
     name : venue.name , 

@@ -1,9 +1,9 @@
 import React  from "react";
 import VenuesData from "../Data/VenuesData";
+import Animations from '../Data/Animations';
 
 const BestVenues = () => {
-  const [venues] = VenuesData()
-
+  const [ venues, venuesIconData, isLoading ] = VenuesData() 
   const displayVenues = venues.slice(0 , 3 ) ;
 
   return (
@@ -12,9 +12,12 @@ const BestVenues = () => {
         <p className={`text-3xl title`}>Best Venues For Events</p>
         <p className={`text-xl text-center title mt-4`}>Explore event spaces at these outstanding venues this month</p>
       </div>
-    <div className="-z-1 flex mt-10w-full max-md:text-4xl">
+    <div className="-z-1 flex mt-10 w-full max-md:text-4xl">
+    {!isLoading ?
+         ( 
       <div className="flex gap-5 lg:flex-row  items-center justify-center sm:flex-col md:flex-row flex-wrap overflow-hidden relative px-1.5 pt-10 w-full min-h-[464px] max-w-full">
-        {displayVenues.map((venue) => (
+
+          {displayVenues.map((venue) => (
           <li
             key={venue._id}
             className="border border-blue-500 cursor-pointer overflow-hidden  h-[500px] m-2 lg:w-[30%] md:w-[40%] sm:w-[90%] flex flex-row flex-wrap"
@@ -47,9 +50,11 @@ const BestVenues = () => {
             </div>
           </li>
         ))}
-      </div>
+          </div>
+         ) : <Animations />
+        }
     </div>
-    <a href="/displayallvenues" className={`text-2xl pt-5 pb-5 full-width-underline`}>show more {">"} </a>
+    <a href="/displayallvenues" className={`text-2xl pt-5 pb-2 pl-2 full-width-underline`}>show more {">"} </a>
 
 </div>
 

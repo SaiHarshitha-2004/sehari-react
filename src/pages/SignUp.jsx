@@ -118,7 +118,7 @@ const SignUp = () => {
                 </div>
                 <div className="flex gap-5 mt-10 text-xl font-semibold whitespace-nowrap max-md:mt-10">
                   <div className="grow text-black">Already have an account?</div>
-                  <a href="/profile" className="text-teal-500 pb-2 full-width-underline">
+                  <a href="/login" className="text-teal-500 pb-2 full-width-underline">
                      login
                   </a>
                 </div>

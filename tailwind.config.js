@@ -9,6 +9,7 @@ export default {
       backgroundImage: {
         "home" : "url('./src/images/homeTitle.jpg')",
       }
+      
     },
   },
   plugins: [],

@@ -45,7 +45,7 @@ const NavBar = () => {
   return (
     <>
       <div className="z-20">
-        <div className={`z-10 w-full flex justify-between px-10 py-5 text-semibold text-4xl whitespace-nowrap max-md:flex-wrap ${isVerticalScrolled ? 'bg-red-50 fixed top-0  text-black ' : 'text-black'}`}>
+        <div className={`z-10 w-full flex justify-between px-10 py-5 text-semibold text-4xl whitespace-nowrap max-md:flex-wrap ${isVerticalScrolled ? 'bg-red-50 fixed top-0  text-black ' : 'text-white'}`}>
           <div className="flex-auto my-auto">SEHARI</div>
 
           {/* desktop navbar */}
@@ -54,7 +54,6 @@ const NavBar = () => {
               <div className="flex gap-5 justify-between">
                 <a href="/" className={`grow cursor-pointer full-width-underline  subtitle ${subtitleSize}`}>Home</a>
                 <a href="/services" className={`flex-auto cursor-pointer full-width-underline subtitle ${subtitleSize}`}>Services</a>
-                <a href="#"  className={`grow cursor-pointer full-width-underline subtitle ${subtitleSize}`}>Contact us</a>
                 <a href="/login" className={`flex-auto cursor-pointer full-width-underline subtitle ${subtitleSize}`}>Login</a>
 
               </div>
@@ -84,7 +83,6 @@ const NavBar = () => {
                 <div className="flex flex-col  items-center justify-between h-full flex-grow">
                   <a href="/" className={`px-4 py-2 full-width-underline pb-2 substitle ${subtitleSize}`}>Home</a>
                   <a href="/services" className={`px-4 py-2 full-width-underline pb-2 substitle ${subtitleSize}`}>Services</a>
-                  <a href="#" className={`px-4 py-2 full-width-underline pb-2 substitle ${subtitleSize}`}>Contact us</a>
                   <a href="/login" className={`px-4 py-2 full-width-underline pb-2 substitle ${subtitleSize}`}>Login</a>
                 </div>
               </div>
