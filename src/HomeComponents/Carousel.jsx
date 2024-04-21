@@ -49,7 +49,8 @@ const Carousel = () =>{
       </div>
       </div>
       <div className="flex justify-center">
-      <a href="#" className={`text-2xl pt-5 pl-2 pb-2 full-width-underline`}>show more {">"} </a>
+      <button className='justify-center p-3 text-xl title rounded-xl whitespace-nowrap 
+        bg-button-color transition ease-in-out delay-150 focus:bg-blue-300 hover:-translate-y-1 hover:scale-110 hover:bg-button-color duration-300 bg-opacity-60 max-md:px-5'>show more </button>
 
       </div>
     </div>

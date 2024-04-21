@@ -4,7 +4,6 @@ import {
     VerticalTimelineElement,
   } from "react-vertical-timeline-component";
   import "react-vertical-timeline-component/style.min.css";
-  import sehariWorks from "../images/sehariWorks.jpg";
   import bookEvent from "../images/bookEvent.png";
   import connect from "../images/connect.png";
   import location from "../images/location.png";
@@ -17,7 +16,7 @@ const SehariWorks = () => {
           <div
             className={`text-3xl title  whitespace-nowrap`}
           >
-            How <span className="text-blue-400 ">Sehari</span> Works
+            How <span className="text-[#410825] ml-2 mr-2 ">SEHARI</span> Works
           </div>
           <div
             className={`text-xl  text-center title mt-4 `}

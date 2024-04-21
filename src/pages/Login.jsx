@@ -45,7 +45,7 @@ const Login = () => {
   }
   return (
     <>
-    <div className="bg-red-50">
+    <div className="">
       <NavBar />
     </div>
     <div className="z-1 flex justify-center items-center px-16 py-20 max-md:px-5">
@@ -54,11 +54,11 @@ const Login = () => {
           <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
             <img
               src={login}
-              className="grow w-full aspect-[0.7] max-md:max-w-full"
+              className="grow w-full aspect-[0.7]"
             />
           </div>
-          <div className="flex flex-col ml-0 w-6/12 max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col grow items-center px-16 pt-11 pb-20 w-full border border-indigo-300 rounded-r-3xl border-solid bg-black bg-opacity-0 max-md:px-5 max-md:max-w-full">
+          <div className="flex flex-col ml-0 md:w-1/2 lg:w-6/12 max-md:ml-0 max-md:w-full">
+            <div className="flex flex-col grow items-center px-16 pt-11 pb-20 bg-white shadow-xl w-full border border-indigo-300 md:rounded-r-3xl lg:rounded-r-3xl border-solid bg-opacity-0 max-md:px-5 max-md:max-w-full">
               <div className="flex flex-col items-center max-w-full w-[336px]">
                 <div className="flex gap-4 text-3xl font-semibold text-black whitespace-nowrap">
                   <div className="flex-auto">Welcome</div>

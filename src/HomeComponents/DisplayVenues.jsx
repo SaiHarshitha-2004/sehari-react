@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavBar from "../pages/NavBar";
 import { titleSize, subtitleSize, minititleSize } from "../pages/Styles";
 import VenuesData from "../Data/VenuesData";
-import Animations from "../Data/Animations";
+import {Animations} from "../Data/Animations";
 import title from "../images/title.jpg"
 
 const DisplayVenues = () => {
@@ -32,7 +32,7 @@ const DisplayVenues = () => {
                 {venues.map((venue) => (
                   <li
                     key={venue._id}
-                    className="border border-blue-500 cursor-pointer overflow-hidden pb-3 h-[500px] m-2 lg:w-[30%] md:w-[40%] sm:w-[90%] flex flex-row flex-wrap"
+                    className="border shadow-xl rounded-l cursor-pointer overflow-hidden pb-3 h-[500px] m-2 lg:w-[30%] md:w-[40%] sm:w-[90%] flex flex-row flex-wrap"
                   >
                     <div className="w-full h-1/2 relative">
                       <img
@@ -61,7 +61,7 @@ const DisplayVenues = () => {
 
                     <div className="p-2 h-1/2 bg-white/100 flex justify-center flex-col items-center w-full">
                       <p
-                        className={`text-xl title tracking-wide pb-2 text-center text-blue-400`}
+                        className={`text-xl title tracking-wide pb-2 text-center`}
                       >
                         {venue.name}
                         <br />

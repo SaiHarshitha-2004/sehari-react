@@ -8,10 +8,19 @@ export default {
     extend: {
       backgroundImage: {
         "home" : "url('./src/images/homeTitle.jpg')",
+      },
+      colors:{
+        color: "#410825"
       }
       
     },
   },
-  plugins: [],
+  plugins: [
+    require("daisyui"),
+    {
+      plugin: require("tailwindcss-animate"),
+    },
+  ],
+  
 }
 

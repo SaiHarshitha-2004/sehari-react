@@ -1,3 +1,20 @@
+/* color */
+.bg-dark-color {
+  background-color :white;
+}
+.bg-button-color{
+  background-color : rgb(242, 173, 173) ;
+}
+.bg-light-color{
+  background-color: #F4F4F0;
+
+}
+.mainColor{
+  color : rgb(224, 108, 31);
+}
+.subColor{
+  color : rgb(98, 96, 96)
+}
 .full-width-underline {
   position: relative;
 }
