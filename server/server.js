@@ -1,17 +1,16 @@
 import express from 'express';
 import { mongoose } from 'mongoose';
 import cors from "cors";
-import {USERNAME , DATABASE_NAME , COLLECTION_NAME , PASSWORD  } from "../sehari-react/config.js";
+import {USERNAME , DATABASE_NAME , COLLECTION_NAME , PASSWORD  } from "../config.js";
 import bcrypt from "bcryptjs";
 import  cheerio  from 'cheerio';
-// import fs  from 'fs';
+import fs  from 'fs';
 import nodemailer from 'nodemailer';
 import crypto from 'crypto';
-import bestVenues from './src/Models/VenueSchema.js';
-import icons from './src/Models/IconSchema.js';
-import User from './src/Models/LoginSchema.js';
+import bestVenues from './Models/VenueSchema.js';
+import icons from './Models/IconSchema.js';
+import User from './Models/LoginSchema.js';
 import cookieSession from 'cookie-session';
-import passport from 'passport'
 
 const app = express();
 
@@ -19,8 +18,7 @@ app.use(express.json( { extended : false }));
 app.use(
   cookieSession({ name: "session", keys: ["sehari"], maxAge: 24 * 60 * 60 * 100 })
 );
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 const corsOptions = {
   origin : 'http://localhost:5173',

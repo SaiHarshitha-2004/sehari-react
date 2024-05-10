@@ -2,13 +2,13 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./Client/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       backgroundImage: {
-        "home" : "url('./src/images/homeTitle.jpg')",
-        "login" : "url('./src/images/login.jpg')"
+        "home" : "url('./Client/images/homeTitle.jpg')",
+        "login" : "url('./Client/images/login.jpg')"
       },
       colors:{
         color: "#410825"
