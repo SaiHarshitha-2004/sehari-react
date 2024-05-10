@@ -14,22 +14,25 @@ Getting Started
 To get started with Sahari, follow these steps:
 
 Clone this repository.
-Navigate to the client folder and run npm install to install the required dependencies for the front-end.
-Navigate to the server folder and run npm install to install the required dependencies for the server-side.
-Ensure MongoDB is installed and running on your system.
-Configure the server settings as needed.
-Start the server by running npm start in the server folder.
-Start the client by running npm start in the client folder.
+1. Navigate to the client folder and run npm install to install the required dependencies for the front-end.
+2. Navigate to the server folder and run npm install to install the required dependencies for the server-side.
+3. Ensure MongoDB is installed and running on your system.
+4. Configure the server settings as needed.
+5. Start the server by running npm start in the server folder.
+6. Start the client by running npm start in the client folder.
+
+
 Contributing
-We welcome contributions to Sahari! If you'd like to contribute, please follow these guidelines:
+- We welcome contributions to Sahari! If you'd like to contribute, please follow these guidelines:
 
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature-name).
-Make your changes and commit them (git commit -am 'Add some feature').
-Push to the branch (git push origin feature/your-feature-name).
-Create a new Pull Request.
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+- Fork the repository.
+1. Create a new branch (git checkout -b feature/your-feature-name).
+2. Make your changes and commit them (git commit -am 'Add some feature').
+3. Push to the branch (git push origin feature/your-feature-name).
 
-Acknowledgements
-We would like to thank all contributors who have helped to improve Sahari. Your contributions are greatly appreciated!
+- Create a new Pull Request.
+- License
+- This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+- Acknowledgements
+- We would like to thank all contributors who have helped to improve Sahari. Your contributions are greatly appreciated!
