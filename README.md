@@ -11,7 +11,7 @@ The client folder contains all the front-end user interface design including com
 The server folder contains all the server-side code including Mongoose schemas, npm installs, and other required node modules.
 
 Getting Started
-To get started with Sahari, follow these steps:
+To get started with sehari, follow these steps:
 
 Clone this repository.
 1. Navigate to the client folder and run npm install to install the required dependencies for the front-end.
@@ -23,16 +23,16 @@ Clone this repository.
 
 
 Contributing
-- We welcome contributions to Sahari! If you'd like to contribute, please follow these guidelines:
+- We welcome contributions to sehari! If you'd like to contribute, please follow these guidelines:
 
 - Fork the repository.
-1. Create a new branch (git checkout -b feature/your-feature-name).
-2. Make your changes and commit them (git commit -am 'Add some feature').
-3. Push to the branch (git push origin feature/your-feature-name).
+1. Create a new branch 
+2. Make your changes and commit them 
+3. Push to the branch 
 
 - Create a new Pull Request.
 - License
 - This project is licensed under the MIT License - see the LICENSE.md file for details.
 
 - Acknowledgements
-- We would like to thank all contributors who have helped to improve Sahari. Your contributions are greatly appreciated!
+- We would like to thank all contributors who have helped to improve sehari. Your contributions are greatly appreciated!
