@@ -8,6 +8,7 @@ import HereMap from './Maps/HereMap';
 import DisplayVenues from "./HomeComponents/DisplayVenues";
 import {Animations} from './Data/Animations';
 import VenueCard from './HomeComponents/VenueCard';
+import EmailVerify from './Utils/EmailVerify';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/displayallvenues" element={ <DisplayVenues /> } />
         <Route path="/loader" element={ <Animations /> } />
         <Route path="/venuecard" element={ <VenueCard /> } />
+        <Route path="/signup/:id/verify/:token" element={<EmailVerify />} /> 
 
       </Routes>
     </BrowserRouter>

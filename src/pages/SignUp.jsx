@@ -31,6 +31,7 @@ const SignUp = () => {
       });
       
       if(response.ok){
+        alert("evrything is ok , Account Verified")
         navigate("/login");
       }
       else{
