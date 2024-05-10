@@ -8,6 +8,7 @@ export default {
     extend: {
       backgroundImage: {
         "home" : "url('./src/images/homeTitle.jpg')",
+        "login" : "url('./src/images/login.jpg')"
       },
       colors:{
         color: "#410825"

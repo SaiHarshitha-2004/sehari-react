@@ -8,6 +8,7 @@ import theme from "../images/theme.jpg";
 import meeting from "../images/meeting.jpg";
 import wedding from "../images/wedding.jpg";
 import { IoLocationOutline } from "react-icons/io5";
+import TravelExploreOutlinedIcon from '@mui/icons-material/TravelExploreOutlined';
 import DisplayVenuesIcons from "../ServiceComponents/DisplayVenuesIcons";
 
 const Card = ( {title , img }) => {
@@ -38,7 +39,7 @@ const SampleBookings = ( {hallName , EventType , hr , dollar , border}) => {
   return (
      <>
      <div className="shrink-0 mt-16 max-w-full h-px flex justify-center items-center w-[1278px] max-md:mt-10" />
-        <div className="flex gap-5 justify-between items-center  py-20 pr-9 pl-20 mt-14 max-w-full text-4xl text-black bg-red-50 w-[1208px] max-md:flex-wrap max-md:px-5 max-md:mt-10">
+        <div className="flex gap-5 justify-between items-center  py-20 pr-9 pl-20 mt-6 max-w-full text-4xl text-black bg-red-50 w-[1208px] max-md:flex-wrap max-md:px-5 max-md:mt-10">
           <div className="flex flex-col self-start">
             <div className={hallClass}>
               {hallName}
@@ -57,11 +58,6 @@ const SampleBookings = ( {hallName , EventType , hr , dollar , border}) => {
             Book Now
           </div>
         </div>
-        {border ?
-          (
-           <div className="border mt-10 border-solid border-gray-300 "></div>
-          ) : <></>
-        }
       </>
   )
 }
@@ -74,16 +70,11 @@ const Services = () => {
   }
  
   return (
-    <div className="mt-1 z-10">
-      <div>
-        <div className="fixed w-full max-h-fit top-0 bottom-0 z-20">
-          <NavBar />
-        </div>
+    <div className="z-10">
+        
         <div className="w-full">
           <img src={servicesTitle} alt="" className="w-full" />
         </div>
-      </div>
-
       {/* search your venue */}
       <div className="flex flex-col px-10 py-10 -z-10 max-md:px-5">
         <div className="flex w-full  justify-center">
@@ -92,8 +83,8 @@ const Services = () => {
             <div className="absolute mb-10 animate-bounce text-5xl"><IoLocationOutline /></div>
           </div>
         </div>
-        <div className="flex justify-center mb-10">
-          <div className="relative top-5 border border-black w-1/2 flex items-center mt-2 rounded-md shadow-sm">
+        <div className="flex justify-center mt-6 items-center mb-10">
+          <div className="relative border border-black w-1/5 flex items-center rounded-md shadow-sm">
             <div className="pointer-events-none absolute inset-y-0 flex items-center pl-3">
               <span className="text-gray-500 sm:text-sm">
                 <CiSearch />
@@ -105,6 +96,11 @@ const Services = () => {
               placeholder="search"
             />
           </div>
+          <a href="/map">
+            <div className="p-2 ml-5 tooltip tooltip-bottom" data-tip="Geoposition">
+              <TravelExploreOutlinedIcon />
+            </div>
+          </a>
         </div>
 
 

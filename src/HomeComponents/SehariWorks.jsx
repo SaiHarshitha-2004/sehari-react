@@ -14,12 +14,12 @@ const SehariWorks = () => {
     <div className="flex flex-col pt-10 mt-10 pr-5 pb-10 pl-5 max-w-full">
         <div className='pb-10 flex flex-col items-center'>
           <div
-            className={`text-3xl title  whitespace-nowrap`}
+            className={`text-3xl title tracking-wider whitespace-nowrap`}
           >
-            How <span className="text-[#410825] ml-2 mr-2 ">SEHARI</span> Works
+            How SEHARI Works
           </div>
           <div
-            className={`text-xl  text-center title mt-4 `}
+            className={`text-xl tracking-wide text-center title mt-7 `}
           >
             We helps you find your
             perfect venue by searching for what matters most to you.
@@ -42,7 +42,7 @@ const SehariWorks = () => {
               icon={<img src={connect} alt="connect" className='p-1 bg-white' />}
             >
               <h3 className={`text-xl text-center title mt-4 tracking-wide vertical-timeline-element-title`}>
-                connect through our agency from social media
+                plan your event
               </h3>
             </VerticalTimelineElement>
             <VerticalTimelineElement
@@ -50,7 +50,7 @@ const SehariWorks = () => {
               icon={<img src={bookEvent} alt="bookEvent" className='p-1 bg-white' />}
             >
               <h3 className={`text-xl text-center title mt-4 tracking-wide  vertical-timeline-element-title`}>
-                book your event through online
+              connect through our agency from social media
               </h3>
             </VerticalTimelineElement>
           </VerticalTimeline>

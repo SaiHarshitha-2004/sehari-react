@@ -4,13 +4,32 @@ import { FadeLoader } from 'react-spinners';
 export const Animations = () => {
   return (
    <div>
-     <div className='w-screen h-screen backdrop-blur-sm flex justify-center items-center bg-blur'>
-        <FadeLoader />
+     <div className='flex lg:flex-row md:flex-col sm:flex-col gap-5 justify-center'>
+        {/* <FadeLoader /> */}
+        <div className="flex flex-col gap-1 w-64">
+          <div className="skeleton h-32 w-full"></div>
+          <div className="skeleton h-16 w-full"></div>
+        </div>
+        <div className="flex flex-col gap-1 w-64">
+          <div className="skeleton h-32 w-full"></div>
+          <div className="skeleton h-16 w-full"></div>
+        </div>
+        <div className="flex flex-col gap-1 w-64">
+          <div className="skeleton h-32 w-full"></div>
+          <div className="skeleton h-16 w-full"></div>
+        </div>
     </div>
    </div>
   )
 }
 
+export const Loader = () => {
+  return (
+    <div className='flex flex-row gap-5 items-center mt-16 justify-center'>
+      <FadeLoader />
+    </div>
+  )
+}
 export  const fadeIn = (direction , delay) => {
   return {
     hidden :  {

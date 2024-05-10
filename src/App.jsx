@@ -8,26 +8,29 @@ import HereMap from './Maps/HereMap';
 import DisplayVenues from "./HomeComponents/DisplayVenues";
 import {Animations} from './Data/Animations';
 import VenueCard from './HomeComponents/VenueCard';
-import EmailVerify from './Utils/EmailVerify';
-
+import NavBar from './pages/NavBar';
+import Error from './pages/Error';
 
 const App = () => {
   return (
+    <>
+    <NavBar />
     <BrowserRouter> 
       <Routes>
         <Route path="/" element={ <Home />} />
-        <Route path="/services" element={ <Services /> } />
+      <Route path="/services" element={ <Services /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/signup" element={ <SignUp /> } />
 
-        <Route path="/maps" element={ <HereMap /> } />
+        <Route path="/map" element={ <HereMap /> } />
         <Route path="/displayallvenues" element={ <DisplayVenues /> } />
         <Route path="/loader" element={ <Animations /> } />
         <Route path="/venuecard" element={ <VenueCard /> } />
-        <Route path="/signup/:id/verify/:token" element={<EmailVerify />} /> 
+        <Route path="/*" element={ <Error /> } />
 
       </Routes>
     </BrowserRouter>
+    </>
   )
 }
 

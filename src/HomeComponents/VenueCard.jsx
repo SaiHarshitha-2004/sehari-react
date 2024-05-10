@@ -14,9 +14,6 @@ const VenueCard = () => {
 
   return (
     <div>
-        <div className="z-10 fixed w-full max-h-fit top-0 bottom-0">
-        <NavBar />
-      </div>
       <div className='mt-24 w-full h-full flex items-center justify-center'>
       <li
                     key={venue._id}

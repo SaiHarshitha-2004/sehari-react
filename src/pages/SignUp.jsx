@@ -1,12 +1,13 @@
-import React , { useState } from "react";
+import React , { useContext, useState } from "react";
 import login from "../images/login.jpg";
 import { CiFacebook } from "react-icons/ci";
-import { CiInstagram } from "react-icons/ci";
 import { CiTwitter } from "react-icons/ci";
 import { TfiUser } from "react-icons/tfi";
 import { IoLockClosedOutline } from "react-icons/io5";
 import NavBar from "./NavBar";
 import { useNavigate } from "react-router-dom";
+import { FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../Context/Context";
 
 
 const SignUp = () => {
@@ -15,6 +16,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const {toggleSignUpPopup} = useContext(AuthContext);
 
   const handleSignUp = async () => {
     try {
@@ -31,8 +33,8 @@ const SignUp = () => {
       });
       
       if(response.ok){
-        alert("evrything is ok , Account Verified")
-        navigate("/login");
+        toggleSignUpPopup();
+        navigate("/");
       }
       else{
         console.log("response is ",response)
@@ -47,26 +49,12 @@ const SignUp = () => {
   }
   return (
     <>
-    <div className=" bg-red-50">
-      <NavBar />
-    </div>
-    <div className="z-2 flex justify-center items-center px-16 py-20 max-md:px-5">
-      <div className="mt-10 w-full max-md:mt-10 ">
-        <div className="flex gap-0 max-md:flex-col max-md:gap-0">
-          <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-            <img
-              src={login}
-              className="grow w-full aspect-[0.7] max-md:max-w-full"
-            />
-          </div>
-          <div className="flex flex-col ml-0 w-6/12 max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col grow items-center px-16 pt-11 pb-20 w-full border border-indigo-300 rounded-r-3xl border-solid bg-black bg-opacity-0 max-md:px-5 max-md:max-w-full">
+    <div className="z-2 flex bg-login justify-center items-center px-16 py-20 max-md:px-5">
+      <div className="flex justify-center">
+          <div className="flex flex-col backdrop-blur-md shadow-2xl max-md:w-full">
+            <div className="flex flex-col grow items-center px-16 pb-10 w-full">
               <div className="flex flex-col items-center max-w-full w-[336px]">
-                <div className="flex gap-4 text-3xl font-semibold text-black whitespace-nowrap">
-                  <div className="flex-auto">Welcome</div>
-                  <div>back!</div>
-                </div>
-                <div className="mt-14 text-4xl font-semibold text-black max-md:mt-10">
+                <div className="mt-5 text-4xl font-semibold text-black max-md:mt-10">
                   Sign Up
                   <br />
                 </div>
@@ -99,10 +87,9 @@ const SignUp = () => {
                   <div>{error && <p className="text-red-500 mt-3">{error}</p>}</div>
                 </div>
                 
-                <div className="flex flex-col items-center justify-center mt-3 max-w-full border cursor-pointer hover:rounded-3xl text-xl font-medium text-black bg-indigo-300 w-[296px]">
-                  <button type="submit" onClick={handleSignUp} className="text-center  items-start py-6  bg-indigo-300">
-                    {" "} sign up
-                  </button>
+                <div onClick={handleSignUp}  className='w-1/2 text-center justify-center mt-7 p-3 text-xl title rounded-xl whitespace-nowrap 
+                   bg-button-color transition ease-in-out delay-150 focus:bg-blue-300 hover:-translate-y-1 hover:scale-110 hover:bg-button-color duration-300 bg-opacity-60 max-md:px-5'>
+                  <button type="submit" >signup</button>
                 </div>
                 <div className="flex gap-5 justify-between items-center mt-11 text-xl text-black whitespace-nowrap max-md:mt-10">
                   <div className="shrink-0 self-stretch my-auto h-px bg-black border border-black border-solid w-[87px]" />
@@ -113,9 +100,10 @@ const SignUp = () => {
                   connect with
                 </div>
                 <div className="flex gap-5 justify-between mt-16 max-w-full w-[260px] max-md:mt-10">
-                  <CiInstagram  className="lg:w-1/4  md:w-full md:h-full lg:h-full w-1/5 hover:rounded-md hover:border hover:border-black h-1/2" />
-                  <CiFacebook  className="lg:w-1/4 md:w-full md:h-full  lg:h-full w-1/5 hover:rounded-md hover:border hover:border-black h-1/2"/>
-                  <CiTwitter className="lg:w-1/4 md:w-full md:h-full  lg:h-full w-1/5 hover:rounded-md hover:border hover:border-black h-1/2" />
+                <FaGoogle className="lg:w-1/5 md:w-full md:h-full  lg:h-full w-1/5 hover:rounded-md hover:border hover:border-black h-1/2" 
+                  onClick=""/>
+                <CiFacebook  className="lg:w-1/5 md:w-full md:h-full  lg:h-full w-1/5 hover:rounded-md hover:border hover:border-black h-1/2"/>
+                  <CiTwitter className="lg:w-1/5 md:w-full md:h-full  lg:h-full w-1/5 hover:rounded-md hover:border hover:border-black h-1/2" />
                 </div>
                 <div className="flex gap-5 mt-10 text-xl font-semibold whitespace-nowrap max-md:mt-10">
                   <div className="grow text-black">Already have an account?</div>
@@ -128,7 +116,6 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

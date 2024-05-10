@@ -1,27 +1,30 @@
 import express from 'express';
 import { mongoose } from 'mongoose';
 import cors from "cors";
-import {USERNAME , BASE_URL , PASSWORD  } from "../sehari-react/config.js";
+import {USERNAME , DATABASE_NAME , COLLECTION_NAME , PASSWORD  } from "../sehari-react/config.js";
 import bcrypt from "bcryptjs";
 import  cheerio  from 'cheerio';
-import fs  from 'fs';
+// import fs  from 'fs';
 import nodemailer from 'nodemailer';
-import { error, log } from 'console';
 import crypto from 'crypto';
-import Token from "./src/Models/token.js"
-import SendMail from "./src/Utils/SendMail.js"
+import bestVenues from './src/Models/VenueSchema.js';
+import icons from './src/Models/IconSchema.js';
+import User from './src/Models/LoginSchema.js';
+import cookieSession from 'cookie-session';
+import passport from 'passport'
 
 const app = express();
-const router = express.Router();
 
 app.use(express.json( { extended : false }));
-
-const dbName = "sehariDatabase";
-const collectionName = "users";
-
+app.use(
+  cookieSession({ name: "session", keys: ["sehari"], maxAge: 24 * 60 * 60 * 100 })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 const corsOptions = {
   origin : 'http://localhost:5173',
+  methods : "GET , POST , PUT , DELETE",
   credentials : true,
 };
 
@@ -32,39 +35,12 @@ const PORT = process.env.PORT || 8000;
 const uri =  `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.wevnywk.mongodb.net/`
 
 
-const venueSchema = new mongoose.Schema({
-  name: String,
-  bgImage: String,
-  address: String,
-  country: String,
-  website: String,
-  image : String
-}); 
-
-const iconSchema = new mongoose.Schema({
-  name: String,
-  bgImage: String,
-})
-
-
-const userSchema = new mongoose.Schema({
-  email: String , 
-  password: String,
-  verified : {type : Boolean , default : false}
-});
-
-const User = new mongoose.model(collectionName , userSchema);
-const bestVenues = mongoose.model('bestVenues', venueSchema);
-const icons = mongoose.model('icons', iconSchema);
-
-
-mongoose.connect( `${uri}${dbName}` )
+mongoose.connect( `${uri}${DATABASE_NAME}` )
 .then(async () => {
-  // Get a reference to the database and collection
-  const db = mongoose.connection.useDb(dbName)
-  const collection = db.collection(collectionName);
+  const db = mongoose.connection.useDb(DATABASE_NAME)
+  const collection = db.collection(COLLECTION_NAME);
   
-  console.log(`Connected to MongoDB database: ${dbName}, collection: ${collectionName}`);
+  console.log(`Connected to MongoDB database: ${DATABASE_NAME}, collection: ${COLLECTION_NAME}`);
  
   //bestVenues data scrapping from prestigious.com website
 
@@ -119,14 +95,7 @@ app.post('/database/signup', async (req, res) => {
 
     console.log("USER DATA ", existingUser);
 
-    const token = await new Token({
-      userId : existingUser._id ,
-      token : crypto.randomBytes(32).toString('hex')
-    }).save();
 
-    const url = `${BASE_URL}signup/${existingUser._id}/verify/${token.token}`
-    await SendMail(existingUser.email , "Verify Email" , url) ;
-    res.status(200).send({message: 'An email sent to your account please verigy'})
     if(existingUser){
       res.status(200).json({ message: 'Registration has been successfully Please Verify Your email' });
     }
@@ -141,26 +110,6 @@ app.post('/database/signup', async (req, res) => {
   }
 });
 
-// verify emails by links  
-router.get("/:id/verify/:token/", async (req, res) => {
-	try {
-		const user = await User.findOne({ _id: req.params.id });
-		if (!user) return res.status(400).send({ message: "Invalid link" });
-
-		const token = await Token.findOne({
-			userId: user._id,
-			token: req.params.token,
-		});
-		if (!token) return res.status(400).send({ message: "Invalid link" });
-
-		await User.updateOne({ _id: user._id, verified: true });
-		await token.remove();
-
-		res.status(200).send({ message: "Email verified successfully" });
-	} catch (error) {
-		res.status(500).send({ message: "Internal Server Error" });
-	}
-});
 
 
 //login route 
@@ -174,25 +123,11 @@ app.post("/database/login" , async (req , res) => {
 
     const existingUser = await User.findOne( { email} );
 
-    if(!existingUser || !(await bcrypt.compare(password, exitingUser.password)) ){
+    if(!existingUser || !(await bcrypt.compare(password, existingUser.password)) ){
       return res.status(401).json({ message: 'Invalid email or password' });
 
     }
-    if(!existingUser.verified){
-      let token =await Token.findOne({ userId : existingUser._id }) ;
-        if(!token){
-           token = await new Token({
-            userId : existingUser._id ,
-            token : crypto.randomBytes(32).toString('hex')
-          }).save();
-      
-          const url = `${BASE_URL}signup/${existingUser._id}/verify/${token.token}`
-          await SendMail(existingUser.email , "Verify Email" , url) ;
-        }
-        return res.status(401).send({ message: 'An email has sent please verify' });
     res.json({message : "Login successfull !"}) ; 
-  }
-
   } catch (err) {
     console.error('Error during login:', err);
     res.status(500).json({ message: 'Internal server error' });
@@ -217,6 +152,9 @@ app.get("/database/venuesiconsdata" ,  async (req , res ) => {
     res.status(500).json( { message : "Error in fetching data" } );
   }
 })  
+
+// app.use("/auth" , router )
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 }); 

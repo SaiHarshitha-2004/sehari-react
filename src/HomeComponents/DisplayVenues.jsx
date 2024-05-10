@@ -11,9 +11,6 @@ const DisplayVenues = () => {
   return (
     <>
       <div>
-        <NavBar />
-      </div>
-      <div>
         <div className="-z-20 flex-col flex justify-center items-center px-16 bg-white max-md:px-5">
           <div className="flex flex-row justify-center items-center">
             <div className="w-64">

@@ -4,7 +4,6 @@ import {Animations} from '../Data/Animations';
 import { Link } from "react-router-dom";
 
 const handleVenueCard = (venue) => {
-  console.log(venue);
   const venueId = encodeURIComponent(JSON.stringify(venue)) ;
   return <Link to={`/venuecard?venue=${venueId}`} />;
 }
@@ -22,7 +21,7 @@ const BestVenues = () => {
     <div className="-z-1 flex mt-10 w-full max-md:text-4xl">
     {!isLoading ?
          ( 
-      <div className="flex gap-5 lg:flex-row  items-center justify-center sm:flex-col md:flex-row flex-wrap overflow-hidden relative px-1.5 pt-10 w-full min-h-[464px] max-w-full">
+          <div className="flex gap-5 lg:flex-row  items-center justify-center sm:flex-col md:flex-row flex-wrap overflow-hidden relative px-1.5 pt-10 w-full min-h-[464px] max-w-full">
 
           {displayVenues.map((venue) => (
           <li
@@ -60,7 +59,9 @@ const BestVenues = () => {
           </li>
         ))}
           </div>
-         ) : <Animations />
+         ) : <div className="w-full flex justify-center items-center">
+              <Animations />
+            </div>
         }
     </div>
     <a href="/displayallvenues">

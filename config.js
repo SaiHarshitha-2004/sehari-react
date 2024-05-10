@@ -13,3 +13,7 @@ export const EMAIL_PORT = process.env.VITE_EMAIL_PORT ;
 export const EMAIL_USER = process.env.VITE_EMAIL_USER ;
  export const EMAIL_PASS = process.env.VITE_EMAIL_PASS ;
 export const BASE_URL = process.env.VITE_BASE_URL ;
+export const COLLECTION_NAME = process.env.VITE_COLLECTION_NAME ;
+export const DATABASE_NAME = process.env.VITE_DATABASE_NAME ;
+export const GOOGLE_CLIENT_ID = process.env.VITE_GOOGLE_CLIENT_ID
+export const GOOGLE_CLIENT_SECRET = process.env.VITE_GOOGLE_CLIENT_SECRET ;

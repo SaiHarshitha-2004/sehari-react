@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useContext} from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
 import "../App.css";
 import { subtitleSize } from "./Styles";
+import { AuthContext } from "../Context/Context";
+import { CgProfile } from "react-icons/cg";
 
 const NavBar = () => {
+  const { isLoggedIn , logout , toggleLogOutPopup} = useContext(AuthContext);
   const [menu, setMenu] = useState(false);
   const [isVerticalScrolled, setIsVerticalScrolled] = useState(false);
 
@@ -39,38 +42,50 @@ const NavBar = () => {
   const openMenuButton = () => {
     setMenu(!menu);
   };
+
+  const LogOut = () => {
+    logout();
+    toggleLogOutPopup()
+
+  }
+
   return (
     <>
       <div className="z-20 border border-gray-300 border-3">
         <div
-          className={`z-10 w-full flex justify-between px-10 py-3 text-semibold text-4xl border border-white shadow-lg whitespace-nowrap max-md:flex-wrap bg-light-color  text-black  ${
-            isVerticalScrolled ? "fixed top-0 " : ""
+          className={`z-10 w-full flex justify-between px-10 py-3 text-semibold text-4xl border border-white shadow-lg whitespace-nowrap max-md:flex-wrap bg-red-50  text-black  ${
+            isVerticalScrolled ? "fixed top-0" : ""
           }`}
         >
-          <div className="flex-auto my-auto">SEHARI</div>
+          <div className="relative flex-auto my-auto">
+            <a href="/" className="cursor-pointer">
+              SEHARI
+            </a>
+          </div>
 
           {/* desktop navbar */}
-          <div className="hidden lg:flex px-10 flex-col">
+          <div className="hidden lg:flex flex-col">
             <div className="flex flex-col justify-center items-end px-5 py-3 w-full text-3xl font-lightwhitespace-nowrap  max-md:px-5 max-md:max-w-full">
               <div className="flex gap-5 justify-between">
-                <a
-                  href="/"
-                  className={`grow cursor-pointer full-width-underline  subtitle ${subtitleSize}`}
-                >
-                  Home
-                </a>
                 <a
                   href="/services"
                   className={`flex-auto cursor-pointer full-width-underline subtitle ${subtitleSize}`}
                 >
                   Services
                 </a>
-                <a
-                  href="/login"
-                  className={`flex-auto cursor-pointer full-width-underline subtitle ${subtitleSize}`}
-                >
-                  Login
-                </a>
+                {isLoggedIn ? (
+                    <div className="flex flex-row">
+                      <p className={`flex-auto cursor-pointer full-width-underline subtitle mr-5 ${subtitleSize}`} onClick={LogOut}>logout</p>
+                      <CgProfile className="cursor-pointer" />        
+                    </div>
+                ) : (
+                  <a
+                    href="/login"
+                    className={`flex-auto cursor-pointer full-width-underline subtitle ${subtitleSize}`}
+                  >
+                    Login
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -93,45 +108,56 @@ const NavBar = () => {
                     />
                   </label>
                 </div>
-                <div onClick={openMenuButton}  className="drawer-side">
-                  <label 
+                <div onClick={openMenuButton} className="drawer-side">
+                  <label
                     htmlFor="my-drawer-4"
                     aria-label="close sidebar"
                     className="drawer-overlay"
                   ></label>
-                  <ul  className="cursor-pointer flex flex-col p-4 w-80 h-full bg-light-color text-base-content">
+                  <ul className="cursor-pointer flex flex-col p-4 w-80 h-full bg-light-color text-base-content">
                     {/* Sidebar content here */}
 
                     <div className="">
                       <IoCloseOutline />
                     </div>
-                    <div className="flex justify-between  h-1/3 w-full items-center flex-col">
-                      <li>
-                        {" "}
+                    <div className="flex justify-between  h-1/4 w-full items-center flex-col">
+                    <li>
+                      {isLoggedIn ? (
                         <a
                           href="/"
-                          className={`grow cursor-pointer pb-3 full-width-underline  text-2xl title`}
+                          className={`flex-auto cursor-pointer subtitle ${subtitleSize}`}
                         >
-                          Home
+                          <CgProfile />
                         </a>
+                      ) : (
+                        <a
+                          href="/login"
+                          className={`flex-auto cursor-pointer full-width-underline text-2xl subtitle ${subtitleSize}`}
+                        >
+                          Login
+                        </a>
+                      )}
                       </li>
                       <li>
                         {" "}
                         <a
                           href="/services"
-                          className={`flex-auto cursor-pointerpb-3  full-width-underline text-2xl title`}
+                          className={`flex-auto cursor-pointer pb-2  full-width-underline text-2xl title`}
                         >
                           Services
                         </a>
                       </li>
-                      <li>
+                    <li>
+                      {isLoggedIn ? (
                         <a
-                          href="/login"
-                          className={`flex-auto cursor-pointer pb-3 full-width-underline text-2xl title`}
+                          href="/"
+                          className={`flex-auto cursor-pointer pb-2 full-width-underline text-2xl title`}
+                          onClick={LogOut}
                         >
-                          Login
+                          logout
                         </a>
-                      </li>
+                      ) : ""}
+                    </li>
                     </div>
                   </ul>
                 </div>
