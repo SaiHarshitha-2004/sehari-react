@@ -70,6 +70,9 @@ mongoose.connect( `${uri}${DATABASE_NAME}` )
 .catch(
   (e) => console.error(e)
 )
+app.get("/" , (req , res) => {
+  res.json("hello") 
+})
 
 // Signup route
 app.post('/database/signup', async (req, res) => {
