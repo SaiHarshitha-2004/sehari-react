@@ -1,15 +1,15 @@
 import React from 'react'
-import Home from './pages/Home'
-import Services from "./pages/Services";
-import Login from './pages/Login';
+import Home from '../Client/src/pages/Home'
+import Services from '../Client/src/pages/Services';
+import Login from '../Client/src/pages/Login';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SignUp from './pages/SignUp'; 
-import HereMap from './Maps/HereMap';
-import DisplayVenues from "./HomeComponents/DisplayVenues";
-import {Animations} from './Data/Animations';
-import VenueCard from './HomeComponents/VenueCard';
-import NavBar from './pages/NavBar';
-import Error from './pages/Error';
+import SignUp from '../Client/src/pages/SignUp'; 
+import HereMap from '../Client/src/Maps/HereMap';
+import DisplayVenues from "../Client/src/HomeComponents/DisplayVenues";
+import {Animations} from '../Client/src/Data/Animations';
+import VenueCard from '../Client/src/HomeComponents/VenueCard';
+import NavBar from '../Client/src/pages/NavBar.jsx';
+import Error from '../Client/src/pages/Error';
 
 const App = () => {
   return (
@@ -18,7 +18,7 @@ const App = () => {
     <BrowserRouter> 
       <Routes>
         <Route path="/" element={ <Home />} />
-      <Route path="/services" element={ <Services /> } />
+       <Route path="/services" element={ <Services /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/signup" element={ <SignUp /> } />
 
@@ -35,3 +35,5 @@ const App = () => {
 }
 
 export default App
+
+

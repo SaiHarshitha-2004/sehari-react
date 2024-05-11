@@ -1,5 +1,5 @@
 import { mongoose } from 'mongoose';
-import { COLLECTION_NAME } from '../../config.js';
+// import { COLLECTION_NAME } from '../../config.js';
 
 const userSchema = new mongoose.Schema({
     email: String , 
@@ -7,6 +7,6 @@ const userSchema = new mongoose.Schema({
     verified : {type : Boolean , default : false}
   });
 
-const User = new mongoose.model(COLLECTION_NAME , userSchema);
+const User = new mongoose.model("users" , userSchema);
 
 export default User;

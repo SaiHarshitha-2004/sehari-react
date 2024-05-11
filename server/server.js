@@ -1,7 +1,7 @@
 import express from 'express';
 import { mongoose } from 'mongoose';
 import cors from "cors";
-import {USERNAME , DATABASE_NAME , COLLECTION_NAME , PASSWORD  } from "../config.js";
+// import {USERNAME , DATABASE_NAME , COLLECTION_NAME , PASSWORD  } from "./config.js"
 import bcrypt from "bcryptjs";
 import  cheerio  from 'cheerio';
 import fs  from 'fs';
@@ -31,15 +31,16 @@ app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 8000;
 
-const uri =  `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.wevnywk.mongodb.net/`
+const uri =  `mongodb+srv://saiharshithamandapalli:Harshitha@cluster0.wevnywk.mongodb.net/`
 
+const DATABASE_NAME = "sehariDatabase" ;
 
 mongoose.connect( `${uri}${DATABASE_NAME}` )
 .then(async () => {
   const db = mongoose.connection.useDb(DATABASE_NAME)
-  const collection = db.collection(COLLECTION_NAME);
+  const collection = db.collection("users");
   
-  console.log(`Connected to MongoDB database: ${DATABASE_NAME}, collection: ${COLLECTION_NAME}`);
+  console.log(`Connected to MongoDB database: ${DATABASE_NAME}`);
  
   //bestVenues data scrapping from prestigious.com website
 
