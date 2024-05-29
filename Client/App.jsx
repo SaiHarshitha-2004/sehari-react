@@ -10,8 +10,10 @@ import {Animations} from '../Client/src/Data/Animations';
 import VenueCard from '../Client/src/HomeComponents/VenueCard';
 import NavBar from '../Client/src/pages/NavBar.jsx';
 import Error from '../Client/src/pages/Error';
+import axios from "axios" ;
 
 const App = () => {
+  
   return (
     <>
     <NavBar />

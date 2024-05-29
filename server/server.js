@@ -1,12 +1,12 @@
 import express from 'express';
 import { mongoose } from 'mongoose';
 import cors from "cors";
-// import {USERNAME , DATABASE_NAME , COLLECTION_NAME , PASSWORD  } from "./config.js"
+import {USERNAME , DATABASE_NAME  , PASSWORD  } from "./config.js"
 import bcrypt from "bcryptjs";
-import  cheerio  from 'cheerio';
-import fs  from 'fs';
-import nodemailer from 'nodemailer';
-import crypto from 'crypto';
+// import  cheerio  from 'cheerio';
+// import fs  from 'fs';
+// import nodemailer from 'nodemailer';
+// import crypto from 'crypto';
 import bestVenues from './Models/VenueSchema.js';
 import icons from './Models/IconSchema.js';
 import User from './Models/LoginSchema.js';
@@ -31,9 +31,7 @@ app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 8000;
 
-const uri =  `mongodb+srv://saiharshithamandapalli:Harshitha@cluster0.wevnywk.mongodb.net/`
-
-const DATABASE_NAME = "sehariDatabase" ;
+const uri =  `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.wevnywk.mongodb.net/`
 
 mongoose.connect( `${uri}${DATABASE_NAME}` )
 .then(async () => {
