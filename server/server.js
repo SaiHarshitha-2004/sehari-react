@@ -3,10 +3,6 @@ import { mongoose } from 'mongoose';
 import cors from "cors";
 import {USERNAME , DATABASE_NAME  , PASSWORD  } from "./config.js"
 import bcrypt from "bcryptjs";
-// import  cheerio  from 'cheerio';
-// import fs  from 'fs';
-// import nodemailer from 'nodemailer';
-// import crypto from 'crypto';
 import bestVenues from './Models/VenueSchema.js';
 import icons from './Models/IconSchema.js';
 import User from './Models/LoginSchema.js';
@@ -40,30 +36,6 @@ mongoose.connect( `${uri}${DATABASE_NAME}` )
   
   console.log(`Connected to MongoDB database: ${DATABASE_NAME}`);
  
-  //bestVenues data scrapping from prestigious.com website
-
-  /*const html = fs.readFileSync('./src/Data/events.html', 'utf8');
-
-  // Load the HTML into Cheerio
-  const $ = cheerio.load(html);
-
-  // Extract data from the HTML
-  const iconsData = $('.category-cover a').map((_, element) => {
-    const $element = $(element);
-    const name = $element.find('a .category-text').text().trim();
-    const bgImage = $element.find('.category-icon svg');
-  
-    return {
-      name,
-      bgImage,
-    };
-  }).get();
-
-  // Insert venue data into MongoDB venues collection
-
-  await icons.insertMany(iconsData);
-  console.log(`${iconsData.length} documents inserted into MongoDB`);*/
-
 })
 .catch(
   (e) => console.error(e)

@@ -11,6 +11,7 @@ const handleVenueCard = (venue) => {
 const BestVenues = () => {
   const [ venues, venuesIconData, isLoading ] = VenuesData() 
   const displayVenues = venues.slice(0 , 3 ) ;
+  console.log(displayVenues);
 
   return (
     <div className="-z-20 flex-col flex justify-center items-center px-16 py-20 bg-white max-md:px-5">

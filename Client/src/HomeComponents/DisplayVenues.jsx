@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "../pages/NavBar";
-import { titleSize, subtitleSize, minititleSize } from "../pages/Styles";
 import VenuesData from "../Data/VenuesData";
 import {Animations} from "../Data/Animations";
 import title from "../images/title.jpg"

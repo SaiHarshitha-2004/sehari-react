@@ -22,7 +22,7 @@ const SignUp = () => {
     try {
 
       // Make a POST request to your server endpoint for signup
-      const response = await fetch("http://localhost:8000/database/signup", {
+      const response = await fetch(`http://localhost:8000/database/signup`, {
         method : "POST",
         credentials : "include",
         headers: { 'Content-Type': 'application/json' },

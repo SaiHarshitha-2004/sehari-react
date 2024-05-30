@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js" ,
+    "build" : "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,8 @@
     "express": "^4.19.2",
     "fs": "^0.0.1-security",
     "mongoose": "^8.3.4",
-    "nodemailer": "^6.9.13"
+    "nodemailer": "^6.9.13",
+    "path": "^0.12.7",
+    "url": "^0.11.3"
   }
 }
