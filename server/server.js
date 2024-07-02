@@ -17,14 +17,13 @@ app.use(
 );
 
 
-// const corsOptions = {
-//     origin : 'http://localhost:5173',
-//   methods : "GET , POST , PUT , DELETE",
-//   credentials : true,
-// };
+const corsOptions = {
+    origin : 'https://deploy-mern-frontend-sand.vercel.app/',
+  methods : "GET , POST , PUT , DELETE",
+  credentials : true,
+};
 
-// app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 8000;
 
