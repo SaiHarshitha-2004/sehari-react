@@ -18,7 +18,7 @@ app.use(
 
 
 const corsOptions = {
-  origin : 'http://localhost:5173',
+  origin : 'https://sehari-react-api.vercel.app',
   methods : "GET , POST , PUT , DELETE",
   credentials : true,
 };
