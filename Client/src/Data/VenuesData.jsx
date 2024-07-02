@@ -8,12 +8,12 @@ const VenuesData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const bestVenuesResponse = await fetch("https://deploy-sehari-api.vercel/database/bestvenues");
+        const bestVenuesResponse = await fetch("https://deploy-sehari-api.vercel.app/database/bestvenues");
         const bestVenuesData = await bestVenuesResponse.json();
         const filteredVenues = bestVenuesData.filter((ven) => isValid(ven));
         setVenues(filteredVenues);
   
-        const venuesIconResponse = await fetch("http://localhost:8000/database/venuesiconsdata");  
+        const venuesIconResponse = await fetch("https://deploy-sehari-api.vercel.app/database/venuesiconsdata");  
         const venuesIconData = await venuesIconResponse.json();
         setVenuesIconData(venuesIconData); 
 
