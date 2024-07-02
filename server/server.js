@@ -18,7 +18,7 @@ app.use(
 
 
 const corsOptions = {
-    origin : 'https://deploy-mern-frontend-sand.vercel.app/',
+    origin : 'https://deploy-mern-frontend-sand.vercel.app',
   methods : "GET , POST , PUT , DELETE",
   credentials : true,
 };
