@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "sehari server",
   "main": "server.js",
   "type": "module",
   "scripts": {
