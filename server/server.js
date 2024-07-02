@@ -18,7 +18,7 @@ app.use(
 
 
 const corsOptions = {
-      origin:'https://deploy-mern-1whq.vercel.app',
+    origin : 'http://localhost:5173',
   methods : "GET , POST , PUT , DELETE",
   credentials : true,
 };
