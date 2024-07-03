@@ -19,8 +19,8 @@ const App = () => {
     <BrowserRouter> 
       <Routes>
         <Route path="/" element={ <Home />} />
-        <Route path="https://deploy-mern-frontend-sand.vercel.app/services" element={ <Services /> } />
-        <Route path="https://deploy-mern-frontend-sand.vercel.app/login" element={ <Login /> } />
+        <Route path="/services" element={ <Services /> } />
+        <Route path="/login" element={ <Login /> } />
         <Route path="/signup" element={ <SignUp /> } />
 
         <Route path="/map" element={ <HereMap /> } />
