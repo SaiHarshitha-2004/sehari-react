@@ -115,11 +115,11 @@ app.get("/database/venuesiconsdata", async (req, res) => {
 });
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'Client', 'build')));
+app.use(express.static(path.join(__dirname, '..', 'Client', 'build')));
 
 // Catch-all to serve the React app for any other route
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'Client', 'build', 'index.html'));
 });
 
 app.listen(PORT, () => {
