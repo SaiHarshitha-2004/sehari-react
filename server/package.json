@@ -1,13 +1,12 @@
 {
   "name": "server",
-  "version": "1.0.0",
-  "description": "",
+    "version": "1.0.0",
+  "description": "sehari server",
   "main": "server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js" ,
-    "build" : "npm run build"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
