@@ -1,13 +1,13 @@
 import express from 'express';
-import { mongoose } from 'mongoose';
-import cors from "cors";
-import { USERNAME, DATABASE_NAME, PASSWORD } from "./config.js";
-import bcrypt from "bcryptjs";
+import mongoose from 'mongoose';
+import cors from 'cors';
+import bcrypt from 'bcryptjs';
+import path from 'path';
+import cookieSession from 'cookie-session';
+import { USERNAME, DATABASE_NAME, PASSWORD } from './config.js';
 import bestVenues from './Models/VenueSchema.js';
 import icons from './Models/IconSchema.js';
 import User from './Models/LoginSchema.js';
-import cookieSession from 'cookie-session';
-import path from 'path';
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.use(
 );
 
 const corsOptions = {
-  origin: 'https://deploy-mern-frontend-sand.vercel.app',
+  origin: 'https://deploy-sehari-api.vercel.app',
   methods: "GET, POST, PUT, DELETE",
   credentials: true,
 };
@@ -30,18 +30,15 @@ const uri = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.wevnywk.mongodb.net/
 
 mongoose.connect(`${uri}${DATABASE_NAME}`)
   .then(async () => {
-    const db = mongoose.connection.useDb(DATABASE_NAME);
-    const collection = db.collection("users");
-
     console.log(`Connected to MongoDB database: ${DATABASE_NAME}`);
   })
   .catch((e) => console.error(e));
 
-app.get("/", (req, res) => {
+// API Routes
+app.get("/database/hello", (req, res) => {
   res.json("hello");
 });
 
-// Signup route
 app.post('/database/signup', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -75,7 +72,6 @@ app.post('/database/signup', async (req, res) => {
   }
 });
 
-// Login route
 app.post("/database/login", async (req, res) => {
   try {
     const { email, password } = req.body;
