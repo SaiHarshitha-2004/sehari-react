@@ -96,8 +96,27 @@ const router = createBrowserRouter([
 const App = () => {
   return (
     <>
+<<<<<<< HEAD
         <NavBar />
         <RouterProvider router={router} />
+=======
+    <NavBar />
+    <BrowserRouter> 
+      <Routes>
+        <Route path="/" element={ <Home />} />
+        <Route path="/services" element={ <Services /> } />
+        <Route path="/login" element={ <Login /> } />
+        <Route path="/signup" element={ <SignUp /> } />
+
+        <Route path="/map" element={ <HereMap /> } />
+        <Route path="/displayallvenues" element={ <DisplayVenues /> } />
+        <Route path="/loader" element={ <Animations /> } />
+        <Route path="/venuecard" element={ <VenueCard /> } />
+        <Route path="/*" element={ <Error /> } />
+
+      </Routes>
+    </BrowserRouter>
+>>>>>>> c609266b7e6193e26e0374c0a9a7323248ca0e72
     </>
   );
 };
