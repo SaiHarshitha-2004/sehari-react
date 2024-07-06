@@ -1,7 +1,7 @@
 import express from 'express';
 import { mongoose } from 'mongoose';
 import cors from "cors";
-import {USERNAME , DATABASE_NAME  , PASSWORD  } from "./config.js"
+import {USERNAME , DATABASE_NAME  , PASSWORD , ENV_PORT } from "./config.js"
 import bcrypt from "bcryptjs";
 import bestVenues from './Models/VenueSchema.js';
 import icons from './Models/IconSchema.js';
@@ -15,16 +15,11 @@ app.use(express.json( { extended : false }));
 app.use(
   cookieSession({ name: "session", keys: ["sehari"], maxAge: 24 * 60 * 60 * 100 })
 );
-
-<<<<<<< HEAD
-=======
-
 const corsOptions = {
     origin : 'https://deploy-mern-frontend-sand.vercel.app',
   methods : "GET , POST , PUT , DELETE",
   credentials : true,
 };
->>>>>>> c609266b7e6193e26e0374c0a9a7323248ca0e72
 
 // const corsOptions = {
 //     origin : 'https://deploy-mern-frontend-sand.vercel.app',
@@ -34,7 +29,7 @@ const corsOptions = {
 
 app.use(cors());
 
-const PORT = process.env.PORT || 8000;
+const PORT = ENV_PORT || 8000;
 
 const uri =  `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.wevnywk.mongodb.net/`
 
@@ -134,8 +129,6 @@ app.get("/database/venuesiconsdata" ,  async (req , res ) => {
     res.status(500).json( { message : "Error in fetching data" } );
   }
 })  
-
-// app.use("/auth" , router )
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
