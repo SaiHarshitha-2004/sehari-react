@@ -1,5 +1,4 @@
-import React, { createContext} from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from "react";
 import Home from './pages/Home.jsx';
 import Services from './pages/Services.jsx';
 import Login from './pages/Login.jsx';
@@ -10,55 +9,30 @@ import { Animations } from './Data/Animations.jsx';
 import VenueCard from './HomeComponents/VenueCard.jsx';
 import NavBar from './pages/NavBar.jsx';
 import Error from './pages/Error.jsx';
-
-export const UserContext = createContext(null);
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/services",
-    element: <Services />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/signup",
-    element: <SignUp />,
-  },
-  {
-    path: "/map",
-    element: <HereMap />,
-  },
-  {
-    path: "/displayallvenues",
-    element: <DisplayVenues />,
-  },
-  {
-    path: "/loader",
-    element: <Animations />,
-  },
-  {
-    path: "/venuecard",
-    element: <VenueCard />,
-  },
-  {
-    path: "*",
-    element: <Error />,
-  },
-]);
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
+  
   return (
     <>
-        <NavBar />
-        <RouterProvider router={router} />
-    </>
-  );
-};
+    <NavBar />
+    <BrowserRouter> 
+      <Routes>
+        <Route path="/" element={ <Home />} />
+        <Route path="/services" element={ <Services /> } />
+        <Route path="/login" element={ <Login /> } />
+        <Route path="/signup" element={ <SignUp /> } />
 
-export default App;
+        <Route path="/map" element={ <HereMap /> } />
+        <Route path="/displayallvenues" element={ <DisplayVenues /> } />
+        <Route path="/loader" element={ <Animations /> } />
+        <Route path="/venuecard" element={ <VenueCard /> } />
+        <Route path="/*" element={ <Error /> } />
+
+      </Routes>
+    </BrowserRouter>
+    </>
+  )
+}
+
+export default App
