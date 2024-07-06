@@ -1,15 +1,15 @@
 import React, { createContext} from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from '../Client/src/pages/Home.jsx';
-import Services from '../Client/src/pages/Services.jsx';
-import Login from '../Client/src/pages/Login.jsx';
-import SignUp from '../Client/src/pages/SignUp.jsx';
-import HereMap from '../Client/src/Maps/HereMap.jsx';
-import DisplayVenues from "../Client/src/HomeComponents/DisplayVenues.jsx";
-import { Animations } from '../Client/src/Data/Animations.jsx';
-import VenueCard from '../Client/src/HomeComponents/VenueCard.jsx';
-import NavBar from '../Client/src/pages/NavBar.jsx';
-import Error from '../Client/src/pages/Error.jsx';
+import Home from './pages/Home.jsx';
+import Services from './pages/Services.jsx';
+import Login from './pages/Login.jsx';
+import SignUp from './pages/SignUp.jsx';
+import HereMap from './Maps/HereMap.jsx';
+import DisplayVenues from "./HomeComponents/DisplayVenues.jsx";
+import { Animations } from './Data/Animations.jsx';
+import VenueCard from './HomeComponents/VenueCard.jsx';
+import NavBar from './pages/NavBar.jsx';
+import Error from './pages/Error.jsx';
 
 export const UserContext = createContext(null);
 
