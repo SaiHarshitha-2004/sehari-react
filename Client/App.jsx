@@ -11,12 +11,13 @@ import NavBar from '../Client/src/pages/NavBar.jsx';
 import Error from '../Client/src/pages/Error.jsx';
 import { BrowserRouter , Routes , Route } from 'react-router-dom';
 
+
 const App = () => {
   
   return (
     <>
-    <NavBar />
     <BrowserRouter> 
+      <NavBar />
       <Routes>
         <Route path="/" element={ <Home />} />
         <Route path="/services" element={ <Services /> } />
