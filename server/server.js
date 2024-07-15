@@ -1,7 +1,7 @@
 import express from 'express';
 import { mongoose } from 'mongoose';
 import cors from "cors";
-import {USERNAME , DATABASE_NAME  , PASSWORD  } from "./config.js"
+import {USERNAME , DATABASE_NAME  , PASSWORD , ENV_PORT } from "./config.js"
 import bcrypt from "bcryptjs";
 import bestVenues from './Models/VenueSchema.js';
 import icons from './Models/IconSchema.js';
@@ -25,7 +25,7 @@ app.use(
 
 app.use(cors());
 
-const PORT = process.env.PORT || 8000;
+const PORT = ENV_PORT || 8000;
 
 const uri =  `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.wevnywk.mongodb.net/`
 
@@ -125,8 +125,6 @@ app.get("/database/venuesiconsdata" ,  async (req , res ) => {
     res.status(500).json( { message : "Error in fetching data" } );
   }
 })  
-
-// app.use("/auth" , router )
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);

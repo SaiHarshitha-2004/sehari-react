@@ -2,8 +2,7 @@ import React from 'react'
 import Home from '../Client/src/pages/Home.jsx'
 import Services from '../Client/src/pages/Services.jsx';
 import Login from '../Client/src/pages/Login.jsx';
-import {createBrowserRouter , BrowserRouter, Routes, Route } from "react-router-dom";
-import SignUp from '../Client/src/pages/SignUp.jsx'; 
+import SignUp from '../Client/src/pages/SignUp.jsx';
 import HereMap from '../Client/src/Maps/HereMap.jsx';
 import DisplayVenues from "../Client/src/HomeComponents/DisplayVenues.jsx";
 import {Animations} from '../Client/src/Data/Animations.jsx';
