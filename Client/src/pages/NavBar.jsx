@@ -5,6 +5,7 @@ import "../../App.css";
 import { subtitleSize } from "./Styles";
 import { AuthContext } from "../Context/Context";
 import { CgProfile } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const { isLoggedIn , logout , toggleLogOutPopup} = useContext(AuthContext);
