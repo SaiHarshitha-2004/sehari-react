@@ -22,7 +22,7 @@ const SignUp = () => {
     try {
 
       // Make a POST request to your server endpoint for signup
-      const response = await fetch(`/database/signup`, {
+      const response = await fetch(`https://sehari-server.vercel.app/database/signup`, {
         method : "POST",
         credentials : "include",
         headers: { 'Content-Type': 'application/json' },

@@ -25,7 +25,7 @@ const Login = () => {
     else{
     try {
       
-      const response = await fetch(`/database/login` , {
+      const response = await fetch(`https://sehari-server.vercel.app/database/login` , {
         method : "POST",
         credentials : "include",
         headers: { 'Content-Type': 'application/json' },
