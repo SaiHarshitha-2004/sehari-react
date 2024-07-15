@@ -58,33 +58,44 @@ const NavBar = () => {
           }`}
         >
           <div className="relative flex-auto my-auto">
-            <a href="/" className="cursor-pointer">
+            {/* <a href="/" className="cursor-pointer">
               SEHARI
-            </a>
+            </a> */}
+            <Link to="/" className="cursor-pointer">
+              <div>SEHARI</div>
+            </Link>
           </div>
 
           {/* desktop navbar */}
           <div className="hidden lg:flex flex-col">
             <div className="flex flex-col justify-center items-end px-5 py-3 w-full text-3xl font-lightwhitespace-nowrap  max-md:px-5 max-md:max-w-full">
               <div className="flex gap-5 justify-between">
-                <a
+                {/* <a
                   href="/services"
                   className={`flex-auto cursor-pointer full-width-underline subtitle ${subtitleSize}`}
                 >
                   Services
-                </a>
+                </a> */}
+                <Link to="/services" className={`flex-auto cursor-pointer full-width-underline subtitle ${subtitleSize}`}
+                >
+                 <div>Services</div>
+                </Link>
                 {isLoggedIn ? (
                     <div className="flex flex-row">
                       <p className={`flex-auto cursor-pointer full-width-underline subtitle mr-5 ${subtitleSize}`} onClick={LogOut}>logout</p>
                       <CgProfile className="cursor-pointer" />        
                     </div>
                 ) : (
-                  <a
-                    href="/login"
-                    className={`flex-auto cursor-pointer full-width-underline subtitle ${subtitleSize}`}
-                  >
-                    Login
-                  </a>
+                  // <a
+                  //   href="/login"
+                  //   className={`flex-auto cursor-pointer full-width-underline subtitle ${subtitleSize}`}
+                  // >
+                  //   Login
+                  // </a>
+                  <Link to="/login" className={`flex-auto cursor-pointer full-width-underline subtitle ${subtitleSize}`}>
+                    <div>Login</div>
+                  </Link>
+                  
                 )}
               </div>
             </div>
@@ -123,39 +134,39 @@ const NavBar = () => {
                     <div className="flex justify-between  h-1/4 w-full items-center flex-col">
                     <li>
                       {isLoggedIn ? (
-                        <a
-                          href="/"
+                        <Link
+                          to="/"
                           className={`flex-auto cursor-pointer subtitle ${subtitleSize}`}
                         >
                           <CgProfile />
-                        </a>
+                        </Link>
                       ) : (
-                        <a
-                          href="/login"
+                        <Link
+                          to="/login"
                           className={`flex-auto cursor-pointer full-width-underline text-2xl subtitle ${subtitleSize}`}
                         >
                           Login
-                        </a>
+                        </Link>
                       )}
                       </li>
                       <li>
                         {" "}
-                        <a
-                          href="/services"
+                        <Link
+                          to="/services"
                           className={`flex-auto cursor-pointer pb-2  full-width-underline text-2xl title`}
                         >
                           Services
-                        </a>
+                        </Link>
                       </li>
                     <li>
                       {isLoggedIn ? (
-                        <a
-                          href="/"
+                        <Link
+                          to="/"
                           className={`flex-auto cursor-pointer pb-2 full-width-underline text-2xl title`}
                           onClick={LogOut}
                         >
                           logout
-                        </a>
+                        </Link>
                       ) : ""}
                     </li>
                     </div>
