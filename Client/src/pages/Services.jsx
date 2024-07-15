@@ -10,6 +10,7 @@ import wedding from "../images/wedding.jpg";
 import { IoLocationOutline } from "react-icons/io5";
 import TravelExploreOutlinedIcon from '@mui/icons-material/TravelExploreOutlined';
 import DisplayVenuesIcons from "../ServiceComponents/DisplayVenuesIcons";
+import {Link } from "react-router-dom"
 
 const Card = ( {title , img }) => {
   return (
@@ -96,11 +97,11 @@ const Services = () => {
               placeholder="search"
             />
           </div>
-          <a href="/map">
+          <Link to="/map">
             <div className="p-2 ml-5 tooltip tooltip-bottom" data-tip="Geoposition">
               <TravelExploreOutlinedIcon />
             </div>
-          </a>
+          </Link>
         </div>
 
 
