@@ -9,6 +9,7 @@ import {Animations} from '../Client/src/Data/Animations.jsx';
 import VenueCard from '../Client/src/HomeComponents/VenueCard.jsx';
 import NavBar from '../Client/src/pages/NavBar.jsx';
 import Error from '../Client/src/pages/Error.jsx';
+import { BrowserRouter , Routes , Route } from 'react-router-dom';
 
 const App = () => {
   
