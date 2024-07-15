@@ -15,11 +15,6 @@ app.use(express.json( { extended : false }));
 app.use(
   cookieSession({ name: "session", keys: ["sehari"], maxAge: 24 * 60 * 60 * 100 })
 );
-const corsOptions = {
-    origin : 'https://deploy-mern-frontend-sand.vercel.app',
-  methods : "GET , POST , PUT , DELETE",
-  credentials : true,
-};
 
 // const corsOptions = {
 //     origin : 'https://deploy-mern-frontend-sand.vercel.app',
