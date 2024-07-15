@@ -65,11 +65,11 @@ const BestVenues = () => {
             </div>
         }
     </div>
-    <a href="/displayallvenues">
+    <Link to="/displayallvenues">
     <button className='justify-center mt-10 p-3 text-xl title rounded-xl whitespace-nowrap 
         bg-button-color transition ease-in-out delay-150 focus:bg-blue-300 hover:-translate-y-1 hover:scale-110 hover:bg-button-color duration-300 bg-opacity-60 max-md:px-5'>show more </button>
 
-    </a>
+    </Link>
 
 </div>
 
